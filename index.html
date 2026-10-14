@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hóa học Amine</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--b1:#0a47c9;--b2:#1e8fff;--b3:#6fd0ff;--bg:#f1f8ff;--ink:#0b1f44;--mut:#4a6088;--line:#cfe2fb}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;font:16px/1.65 'Be Vietnam Pro',system-ui,sans-serif;color:var(--ink);background:linear-gradient(180deg,#fff,var(--bg) 360px,#fff) fixed}
+.hero{background:linear-gradient(120deg,var(--b1),var(--b2),var(--b3),var(--b2));background-size:300% 300%;animation:flow 14s ease infinite;color:#fff;padding:26px 16px 0;border-radius:0 0 28px 28px}
+@keyframes flow{50%{background-position:100% 50%}}
+.wrap{max-width:980px;margin:0 auto}
+h1{margin:0;font-size:clamp(1.6rem,4vw,2.3rem);font-weight:800;letter-spacing:-.01em}
+#hi{margin:4px 0 18px;font-size:1rem;opacity:.92}
+nav{display:flex;gap:6px;flex-wrap:wrap}
+nav button{border:0;background:rgba(255,255,255,.18);color:#fff;font:inherit;font-weight:700;padding:11px 20px;border-radius:14px 14px 0 0;cursor:pointer}
+nav button.on{background:#fff;color:var(--b1)}
+main{padding:0 16px 48px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0 14px}
+.chip{border:1px solid var(--line);background:#fff;color:var(--b1);padding:9px 15px;border-radius:999px;font:inherit;font-size:.95rem;font-weight:500;cursor:pointer}
+.chip.on{background:linear-gradient(120deg,var(--b1),var(--b2));color:#fff;border-color:transparent}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 8px 24px rgba(30,143,255,.1)}
+h2{margin:0 0 6px;font-size:1.3rem;color:var(--b1)}h3{margin:0 0 10px;font-size:1.1rem}
+.eq{background:#eef6ff;border-left:4px solid var(--b2);padding:10px 14px;border-radius:8px;margin:10px 0;overflow-x:auto}
+.lab{display:flex;gap:22px;align-items:center;flex-wrap:wrap;background:linear-gradient(135deg,#f6fbff,#e3f1ff);border-radius:14px;padding:16px;margin:14px 0}
+.ctl{display:flex;flex-direction:column;gap:8px;align-items:flex-start;flex:1;min-width:220px}
+.say{min-height:3.4em;font-size:.98rem}
+.btn,.btn2{font:inherit;font-weight:700;border-radius:12px;padding:10px 18px;cursor:pointer;border:1px solid transparent}
+.btn{background:linear-gradient(120deg,var(--b1),var(--b2));color:#fff}
+.btn2{background:#fff;color:var(--b1);border-color:var(--line)}
+.btn:disabled,.btn2:disabled{opacity:.45;cursor:not-allowed}
+select,input{font:inherit;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;width:100%}
+details.more{margin-top:12px}summary{cursor:pointer;color:var(--b1);font-weight:700}
+details.more>div{padding:8px 0 0}
+:focus-visible{outline:3px solid var(--b3);outline-offset:2px}
+.tube{position:relative;width:64px;height:132px;border:3px solid #7fa8e6;border-top:none;border-radius:0 0 34px 34px;overflow:hidden;background:rgba(255,255,255,.7);flex:none}
+.liq{position:absolute;inset:auto 0 0 0;height:68%;background:var(--c,transparent);transition:background .8s}
+.ppt{position:absolute;inset:auto 0 0 0;height:24%;background:var(--p,transparent);opacity:var(--po,0);transition:opacity .8s}
+.bub i{display:none;position:absolute;bottom:8%;width:8px;height:8px;border-radius:50%;background:#fff;border:1px solid #8fb4ea;animation:rise 1.8s infinite}
+.tube.on .bub i{display:block}
+.bub i:nth-child(1){left:12px}.bub i:nth-child(2){left:28px;animation-delay:.5s}.bub i:nth-child(3){left:42px;animation-delay:1s}.bub i:nth-child(4){left:20px;animation-delay:1.4s}
+@keyframes rise{to{bottom:62%;opacity:0}}
+svg{max-width:100%;height:auto;display:block}.sv{overflow-x:auto}.sv svg{min-width:560px}
+.fade{transition:opacity 1s}
+.opt{display:block;width:100%;text-align:left;font:inherit;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:8px 0;cursor:pointer}
+.opt.sel{border-color:var(--b2);background:#e8f3ff}
+.bar{height:8px;background:#e1eefc;border-radius:9px;overflow:hidden;margin-bottom:14px}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--b1),var(--b3));transition:width .4s}
+.row{display:flex;gap:10px;justify-content:space-between;margin-top:14px}
+.ok{color:#0a7a3d}.no{color:#c0262d}.mut{color:var(--mut)}
+.rv{border-top:1px solid var(--line);padding:10px 0}
+.overlay{position:fixed;inset:0;z-index:9;display:grid;place-items:center;padding:16px;background:linear-gradient(135deg,var(--b1),var(--b2),var(--b3));overflow:auto}
+.overlay .card{max-width:440px;width:100%}
+label{display:block;font-weight:500;margin:12px 0 4px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+
+<div class="overlay" id="survey"><form class="card" id="sf">
+<h2>Chào mừng bạn đến bài học Amine</h2>
+<p class="mut" style="margin:0">Điền thông tin để thầy/cô ghi nhận kết quả bài tập của bạn[cite: 10].</p>
+<label for="n">Họ và tên</label><input id="n" name="name" required autocomplete="name">
+<label for="c">Lớp</label><input id="c" name="cls" required placeholder="Ví dụ: 12A3">
+<label for="s">Trường</label><input id="s" name="school" required>
+<label for="l">Bạn thấy chủ đề amine hiện giờ thế nào?</label>
+<select id="l" name="level"><option>Mới bắt đầu</option><option>Biết cơ bản</option><option>Khá chắc</option><option>Rất tự tin</option></select>
+<button class="btn" style="width:100%;margin-top:18px">Vào học</button>
+</form></div>
+
+<header class="hero"><div class="wrap">
+<h1>Hóa học Amine</h1><p id="hi"></p>
+<nav id="nav"><button class="on" data-go="p1">Phản ứng hóa học</button><button data-go="p2">Điều chế</button><button data-go="p3">Bài tập</button></nav>
+</div></header>
+
+<main class="wrap">
+
+<!-- ===== PHẢN ỨNG ===== -->
+<section class="pane" id="p1">
+<div class="chips" id="rc"><button class="chip on" data-go="r1">1. Tính base</button><button class="chip" data-go="r2">2. Với dung dịch acid</button><button class="chip" data-go="r3">3. Với muối, tạo phức</button><button class="chip" data-go="r4">4. Với nitrous acid</button><button class="chip" data-go="r5">5. Aniline + nước bromine</button></div>
+
+<div class="card rp" id="r1"><h2>Tính base</h2>
+<p>Nguyên tử N còn cặp electron tự do nên amine nhận H<sup>+</sup> của nước, tạo ion OH<sup>−</sup>[cite: 10].</p>
+<div class="eq">CH<sub>3</sub>NH<sub>2</sub> + H<sub>2</sub>O ⇌ CH<sub>3</sub>NH<sub>3</sub><sup>+</sup> + OH<sup>−</sup>[cite: 10]</div>
+<div class="lab"><div data-t="t1"></div><div class="ctl">
+<label for="a1" style="margin:0">Chọn amine</label><select id="a1" onchange="r1()"><option value="1">CH₃NH₂ (methylamine)</option><option value="1">C₂H₅NH₂ (ethylamine)</option><option value="1">(CH₃)₂NH (dimethylamine)</option><option value="0">C₆H₅NH₂ (aniline)</option></select>
+<label for="i1" style="margin:0">Chọn chất chỉ thị</label><select id="i1" onchange="r1()"><option value="q">Quỳ tím</option><option value="p">Phenolphthalein</option></select>
+<div class="say" id="o1"></div></div></div>
+<details class="more"><summary>Xem thêm: so sánh lực base</summary><div>(CH<sub>3</sub>)<sub>2</sub>NH &gt; CH<sub>3</sub>NH<sub>2</sub> &gt; NH<sub>3</sub> &gt; C<sub>6</sub>H<sub>5</sub>NH<sub>2</sub>. Gốc alkyl đẩy electron làm N dễ nhận H<sup>+</sup> hơn; gốc phenyl hút electron làm lực base giảm mạnh[cite: 2, 10].</div></details></div>
+
+<div class="card rp" id="r2" hidden><h2>Phản ứng với dung dịch acid</h2>
+<p>Amine là base nên tác dụng với acid tạo muối ammonium tan. Cho kiềm vào, amine được giải phóng trở lại[cite: 10].</p>
+<div class="eq">C<sub>6</sub>H<sub>5</sub>NH<sub>2</sub> + HCl → C<sub>6</sub>H<sub>5</sub>NH<sub>3</sub>Cl<br>C<sub>6</sub>H<sub>5</sub>NH<sub>3</sub>Cl + NaOH → C<sub>6</sub>H<sub>5</sub>NH<sub>2</sub> + NaCl + H<sub>2</sub>O[cite: 10]</div>
+<div class="lab"><div data-t="t2"></div><div class="ctl">
+<button class="btn" onclick="r2(1)">Nhỏ dung dịch HCl</button><button class="btn2" onclick="r2(2)">Nhỏ dung dịch NaOH</button>
+<div class="say" id="o2"></div></div></div>
+<details class="more"><summary>Xem thêm: ứng dụng</summary><div>Tính chất này dùng để tách aniline ra khỏi hỗn hợp: hòa tan vào dung dịch HCl, sau đó thêm NaOH để thu lại aniline[cite: 10].</div></details></div>
+
+<div class="card rp" id="r3" hidden><h2>Phản ứng với dung dịch muối và tạo phức</h2>
+<p>Dung dịch amine tan có tính base, làm kết tủa hydroxide kim loại. Với một số ion như Cu<sup>2+</sup>, amine dư còn tạo phức tan[cite: 2, 10].</p>
+<div class="eq">3CH<sub>3</sub>NH<sub>2</sub> + 3H<sub>2</sub>O + FeCl<sub>3</sub> → Fe(OH)<sub>3</sub>↓ + 3CH<sub>3</sub>NH<sub>3</sub>Cl[cite: 2, 10]</div>
+<div class="lab"><div data-t="t3"></div><div class="ctl">
+<label for="s3" style="margin:0">Dung dịch muối trong ống nghiệm</label><select id="s3" onchange="r3(0)"><option value="cu">CuSO₄</option><option value="fe">FeCl₃</option></select>
+<div><button class="btn" onclick="r3(1)">Nhỏ methylamine</button> <button class="btn2" onclick="r3(0)">Làm lại</button></div>
+<div class="say" id="o3"></div></div></div>
+<details class="more"><summary>Xem thêm: phương trình tạo phức</summary><div>Cu<sup>2+</sup> + 2CH<sub>3</sub>NH<sub>2</sub> + 2H<sub>2</sub>O → Cu(OH)<sub>2</sub>↓ + 2CH<sub>3</sub>NH<sub>3</sub><sup>+</sup><br>Cu(OH)<sub>2</sub> + 4CH<sub>3</sub>NH<sub>2</sub> → [Cu(CH<sub>3</sub>NH<sub>2</sub>)<sub>4</sub>](OH)<sub>2</sub> (xanh thẫm)<br>Fe(OH)<sub>3</sub> không tan trong amine dư[cite: 2, 10].</div></details></div>
+
+<div class="card rp" id="r4" hidden><h2>Phản ứng với nitrous acid (HNO<sub>2</sub>)</h2>
+<p>HNO<sub>2</sub> không bền nên được tạo tại chỗ từ NaNO<sub>2</sub> và HCl. Sản phẩm phụ thuộc vào loại amine và nhiệt độ[cite: 2, 10].</p>
+<div class="lab"><div data-t="t4"></div><div class="ctl">
+<button class="btn2" onclick="r4(0)">Ethylamine (amine bậc 1 no)</button>
+<button class="btn2" onclick="r4(1)">Aniline ở 0–5 °C</button>
+<button class="btn2" onclick="r4(2)">Aniline ở nhiệt độ thường</button>
+<div class="say" id="o4">Chọn một thí nghiệm.</div></div></div>
+<details class="more"><summary>Xem thêm: ý nghĩa</summary><div>Muối diazonium là chất trung gian quan trọng để tổng hợp phẩm nhuộm azo. Phản ứng giải phóng N<sub>2</sub> dùng để nhận biết amine bậc 1[cite: 2, 10].</div></details></div>
+
+<div class="card rp" id="r5" hidden><h2>Phản ứng thế ở nhân thơm của aniline</h2>
+<p>Nhóm –NH<sub>2</sub> hoạt hóa nhân benzene, nên aniline phản ứng với nước bromine ở nhiệt độ thường, không cần xúc tác, thế vào cả 3 vị trí 2, 4, 6[cite: 2, 10].</p>
+<div class="eq">C<sub>6</sub>H<sub>5</sub>NH<sub>2</sub> + 3Br<sub>2</sub> → 2,4,6-Br<sub>3</sub>C<sub>6</sub>H<sub>2</sub>NH<sub>2</sub>↓ + 3HBr[cite: 2, 10]</div>
+<div class="lab"><div data-t="t5"></div><div class="ctl">
+<div><button class="btn" onclick="r5(1)">Nhỏ
